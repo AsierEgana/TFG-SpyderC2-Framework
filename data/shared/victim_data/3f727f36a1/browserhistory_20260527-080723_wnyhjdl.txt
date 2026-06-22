@@ -1,0 +1,17 @@
+Browser User DataType Data 
+------- ---- -------- ---- 
+Chrome  Asier History http://youtube.com 
+Chrome  Asier History https://www.youtube.com 
+Chrome  Asier History https://www.google.com 
+Chrome  Asier History https://github.com 
+Chrome  Asier History https://donostia.eus 
+Chrome  Asier History http://donostia.eus 
+Browser User DataType Data 
+------- ---- -------- ---- 
+Chrome  Asier Bookmark http://youtube.com 
+Chrome  Asier Bookmark https://www.youtube.com 
+Chrome  Asier Bookmark https://www.google.com 
+Chrome  Asier Bookmark https://github.com 
+Chrome  Asier Bookmark https://donostia.eus 
+Chrome  Asier Bookmark http://donostia.eus 
+
