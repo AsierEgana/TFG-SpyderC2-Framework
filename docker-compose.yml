@@ -1,0 +1,71 @@
+services:
+  backend:
+    build: ./backend
+    expose:
+      - "3000"            # Solo accesible desde la red interna
+    networks:
+      - red_interna
+    depends_on:
+      - spyderc2
+
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"            # Accesible desde fuera
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/html:/usr/share/nginx/html
+    depends_on:
+      - backend
+    networks:
+      - red_interna
+
+  spyderc2:
+    build:
+      dockerfile: Dockerfile
+      context: ./spyderc2
+    container_name: spyderc2
+    networks:
+      - red_interna
+    expose:
+      - "8080"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    volumes:
+      - ./SpyderC2/data/shared/tmp:/home/attacker/SpyderC2/shared/tmp
+      - ./SpyderC2/data/shared/victim_data:/home/attacker/SpyderC2/shared/victim_data
+    environment:
+      SPYDERC2_HOST_PATH: C:\Users\Asier\Desktop\Uni\TFG\docker\SpyderC2
+      MONGODB_DATABASE: SpyderC2
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: password123
+      MONGODB_HOSTNAME: mongo
+
+  mongo:
+    image: mongo:4.4
+    container_name: spyder-mongo
+    networks:
+      - red_interna
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: SpyderC2
+    command: mongod --bind_ip_all --quiet
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo --quiet localhost:27017
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+
+networks:
+  red_interna:
+    driver: bridge
+
+volumes:
+  mongo_data:
