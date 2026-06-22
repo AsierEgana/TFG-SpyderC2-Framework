@@ -1,0 +1,12 @@
+
+INFORMACIN DE PRIVILEGIOS
+--------------------------
+
+Nombre de privilegio          Descripcin                                  Estado       
+============================= ============================================ =============
+SeShutdownPrivilege           Apagar el sistema                            Deshabilitado
+SeChangeNotifyPrivilege       Omitir comprobacin de recorrido             Habilitada   
+SeUndockPrivilege             Quitar equipo de la estacin de acoplamiento Deshabilitado
+SeIncreaseWorkingSetPrivilege Aumentar el espacio de trabajo de un proceso Deshabilitado
+SeTimeZonePrivilege           Cambiar la zona horaria                      Deshabilitado
+

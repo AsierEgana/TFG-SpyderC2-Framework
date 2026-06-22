@@ -1,0 +1,11 @@
+pyinstaller
+flask
+requests
+argparse
+pymongo
+mss
+psutil
+rich
+kivy
+chardet
+

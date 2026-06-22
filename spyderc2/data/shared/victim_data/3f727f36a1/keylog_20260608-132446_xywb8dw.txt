@@ -1,0 +1,4 @@
+Keylogger stopped after 40 keystrokes / 10s max
+Captured at: 2026-06-08 15:24:46
+----------------------------------------
+[shift_r]!"·"·%"$%·$&%$&[esc][esc][esc]ñññññe6[shift_r]$&·$%&[esc][esc][backspace][ctrl_l][backspace][backspace][backspace]
